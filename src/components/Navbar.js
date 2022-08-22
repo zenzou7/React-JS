@@ -1,9 +1,10 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 
 const navbar = () =>{
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav id="navbar" className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">Eren Jägermeister</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -21,6 +22,7 @@ const navbar = () =>{
                     </li>
                 </ul>
                 </div>
+                <CartWidget></CartWidget>
             </nav>
         </div>
     )
