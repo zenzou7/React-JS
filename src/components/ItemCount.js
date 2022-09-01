@@ -8,15 +8,23 @@ const ItemCount = ({ stock = 0 , initial = 1 , onAdd}) =>{
     },[])
 
     const incremento = () =>{
+		
         if(count < stock){
-            setCount(count+1)
+		
+            setCount(prev => prev +1)
+		
         }
+		
     }
 
-    const decremento = () =>{
+const decremento = () =>{
+		
         if(count > initial){
-            setCount(count-1)
+		
+            setCount(prev => prev -1)
+		
         }
+		
     }
     return(
         <div id="ContainerContador">
