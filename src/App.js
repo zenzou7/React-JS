@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
         <Navbar/>
-        <ItemListContainer mensaje="Catalogo proximamente"/>
+        <ItemListContainer/>
     </div>
   );
 }

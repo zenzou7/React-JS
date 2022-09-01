@@ -1,16 +1,12 @@
 import React from "react";
-import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
-const ItemListContainer  = (props) =>{
-
-    const onAdd = (qty)=>{
-        alert("Has seleccionado " + qty +" productos.")
-    }
+const ItemListContainer  = () =>{
 
     return(
         <div id="catalogo">
-            <h1>{props.mensaje}</h1>
-            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            <h1>Catalogo de productos</h1>
+            <ItemList/>
         </div>
     );
 }
