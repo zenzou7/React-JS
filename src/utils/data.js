@@ -8,17 +8,23 @@ export const data = [
         nombre: "Fernet Branca",
         precio: 800,
         img: fernet_branca,
+        descripcion: "descripcion generica",
+        stock: 10
     },
     {
         id:2,
         nombre:"Monster",
         precio:300,
         img: monster,
+        descripcion: "descripcion generica",
+        stock: 20
     },
     {
         id:3,
         nombre:"Vodka Absolut",
         precio:1000,
         img: vodka,
+        descripcion: "descripcion generica",
+        stock:50
     }
 ]

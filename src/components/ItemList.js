@@ -40,7 +40,7 @@ const ItemList = () =>{
                 <img src={bebida.img} alt="imagen bebida"/>
                 <h1>{bebida.nombre}</h1>
                 <h2>{bebida.precio}</h2>
-                <Item></Item>
+                <Item/>
                 <ItemCount stock={5} initial={1} onAdd={onAdd}/>
             </div>)
         }
