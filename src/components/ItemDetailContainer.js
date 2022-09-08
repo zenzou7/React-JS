@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
 import {data} from '../utils/data'
+import { useParams } from "react-router-dom";
+import Item from "./Item";
+import ItemCount from "./ItemCount";
 
-const getDato =() =>{ 
+const getDato =(time, item) =>{ 
     return new Promise((resolve, reject) =>{
         if(true){
             setTimeout(()=>{
-                resolve(data[0])
-            },2000);
+                resolve(item)
+            },time);
         } else{
             reject("Error")
         }
@@ -16,16 +18,24 @@ const getDato =() =>{
 
 const ItemDetailContainer = () =>{
 
-    const [dato, setDato] = useState([]);
+    const {id} = useParams();
 
+    const [dato, setDato] = useState({});
+    
     useEffect(() => {
-        getDato(data[1])
+        getDato(1000, data.find(item => item.id === parseInt(id)))
             .then(result => setDato(result))
             .catch(err => console.log(err))
-    },[])
-
+    },[id])
+    
     return(
-        <ItemDetail item={dato} />
+        <>
+            <div>
+                <Item id={dato.id} img={dato.img} nombre={dato.nombre} precio={dato.precio}/>
+                <h2>descripcion:{dato.descripcion}</h2>
+                <ItemCount stock={dato.stock} initial={1}/>
+            </div>
+        </>
     )
 }
 

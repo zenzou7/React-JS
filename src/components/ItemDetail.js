@@ -1,20 +1,12 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({item}) => {
-    
-    const onAdd = (qty) => {
-        alert("Has seleccionado "+qty+" productos.")
-    }
+const ItemDetail = ({id}) => {
 
-  return (
-    <div>
-        <img src={item.img} alt="imagen de bebida"/>
-        <h1>{item.nombre}</h1>
-        <h2>{item.precio}</h2>
-        <p>{item.descripcion}</p>
-        <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
-    </div>
+    return(
+      <>
+          <Link to={`/item/${id}`}><h2>Detalle de producto</h2></Link>
+      </>
   )
 }
 

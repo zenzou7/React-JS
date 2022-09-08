@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 
-const ItemCount = ({ stock = 0 , initial = 1 , onAdd}) =>{
+const ItemCount = ({ stock = 0 , initial = 1}) =>{
     const [count, setCount] = useState(0);
     
+    const onAdd = (qty)=>{
+        alert("Has seleccionado " + qty +" productos.")
+    }
+
     useEffect(() =>{
         setCount(initial);
     },[])
