@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 
-const ItemCount = ({ stock = 0 , initial = 1}) =>{
+const ItemCount = ({ stock = 0 , initial = 0, onAdd}) =>{
     const [count, setCount] = useState(0);
     
-    const onAdd = (qty)=>{
-        alert("Has seleccionado " + qty +" productos.")
-    }
-
     useEffect(() =>{
         setCount(initial);
     },[])
@@ -37,9 +33,9 @@ const decremento = () =>{
             <button className="boton" onClick={decremento}>-</button>
 
         {
-            stock
+            stock&&count
             ? <button onClick={() =>onAdd(count)}>Agregar al carro</button>
-            : <button>Agregar al carro</button>
+            : <button disabled>Agregar al carro</button>
         }
         </div>
     );

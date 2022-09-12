@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {data} from '../utils/data'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Item from "./Item";
 import ItemCount from "./ItemCount";
 
@@ -21,6 +21,15 @@ const ItemDetailContainer = () =>{
     const {id} = useParams();
 
     const [dato, setDato] = useState({});
+
+    const [estado, setEstado] = useState(0);
+
+    const onAdd = (qty) =>{
+        alert("Has seleccionado " + qty +" productos.")
+        setEstado(qty);
+    }
+    
+
     
     useEffect(() => {
         getDato(1000, data.find(item => item.id === parseInt(id)))
@@ -33,7 +42,12 @@ const ItemDetailContainer = () =>{
             <div>
                 <Item id={dato.id} img={dato.img} nombre={dato.nombre} precio={dato.precio}/>
                 <h2>descripcion:{dato.descripcion}</h2>
-                <ItemCount stock={dato.stock} initial={1}/>
+                
+                {
+                   estado === 0
+                    ? <ItemCount stock={dato.stock} initial={estado} onAdd={onAdd}/>
+                    : <Link to={'/cart'}><button>Tu Carrito</button></Link>
+                }
             </div>
         </>
     )

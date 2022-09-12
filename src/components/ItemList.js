@@ -27,6 +27,10 @@ const ItemList = () =>{
 
     const [bebidas, setBebidas] = useState([]);
 
+    const onAdd = (qty) =>{
+        alert("Has seleccionado " + qty +" productos.")
+    }
+
     useEffect(()=>{
         if(id){
         getDatos(1000, data.filter(item => item.categoryId === parseInt(id)))
@@ -44,10 +48,10 @@ const ItemList = () =>{
         <>
         {
         bebidas.map(bebida => 
-            <div>
+            <div key={bebida.id}>
                 <Item id={bebida.id} img={bebida.img} nombre={bebida.nombre} precio={bebida.precio}/>
                 <ItemDetail id={bebida.id}/>
-                <ItemCount stock={bebida.stock} initial={1}/>
+                <ItemCount stock={bebida.stock} initial={0} onAdd={onAdd}/>
             </div>) 
         }
         </>
