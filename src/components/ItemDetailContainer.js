@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {data} from '../utils/data'
 import { Link, useParams } from "react-router-dom";
 import Item from "./Item";
 import ItemCount from "./ItemCount";
+import { CartContext } from "./CartContext";
 
 const getDato =(time, item) =>{ 
     return new Promise((resolve, reject) =>{
@@ -24,9 +25,12 @@ const ItemDetailContainer = () =>{
 
     const [estado, setEstado] = useState(0);
 
+    const test = useContext(CartContext)
+
     const onAdd = (qty) =>{
         alert("Has seleccionado " + qty +" productos.")
         setEstado(qty);
+        test.addItem(dato, qty)
     }
     
 

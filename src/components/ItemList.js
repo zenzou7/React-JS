@@ -1,11 +1,11 @@
 import React from "react";
 import {data} from "../utils/data"
-import { useState } from "react";
-import {useEffect} from "react";
+import { useState , useEffect } from "react";
 import ItemCount from "./ItemCount";
 import Item from "./Item"
 import {useParams} from "react-router-dom"
 import ItemDetail from "./ItemDetail";
+
 
 let okey =true;
 
@@ -27,10 +27,6 @@ const ItemList = () =>{
 
     const [bebidas, setBebidas] = useState([]);
 
-    const onAdd = (qty) =>{
-        alert("Has seleccionado " + qty +" productos.")
-    }
-
     useEffect(()=>{
         if(id){
         getDatos(1000, data.filter(item => item.categoryId === parseInt(id)))
@@ -43,6 +39,10 @@ const ItemList = () =>{
             .catch(error => console.log(error))
         }
     },[id])
+
+    const onAdd = (qty) =>{
+        alert("Has seleccionado " + qty +" productos.")
+    }
 
     return(
         <>

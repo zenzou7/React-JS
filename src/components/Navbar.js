@@ -23,7 +23,7 @@ const navbar = () =>{
                     </li>
                 </ul>
                 </div>
-                <CartWidget></CartWidget>
+                <CartWidget/>
             </nav>
         </div>
     )
