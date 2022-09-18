@@ -41,21 +41,25 @@ const ItemList = () =>{
     },[id])
 
     const onAdd = (qty) =>{
-        alert("Has seleccionado " + qty +" productos.")
+        alert(`Has seleccionado ${qty}  productos.`)
     }
-
+    if(bebidas.length !== 0){
     return(
         <>
-        {
+        <h1>Catalogo de productos</h1>
+        { 
         bebidas.map(bebida => 
-            <div key={bebida.id}>
-                <Item id={bebida.id} img={bebida.img} nombre={bebida.nombre} precio={bebida.precio}/>
-                <ItemDetail id={bebida.id}/>
-                <ItemCount stock={bebida.stock} initial={0} onAdd={onAdd}/>
-            </div>) 
+        <div key={bebida.id}>
+            <Item id={bebida.id} img={bebida.img} nombre={bebida.nombre} precio={bebida.precio}/>
+            <ItemDetail id={bebida.id}/>
+            <ItemCount stock={bebida.stock} initial={0} onAdd={onAdd}/>
+        </div>) 
         }
         </>
-    )
+    )}
+    else{
+        return(<h1>Cargando...</h1>)
+    }
 }
 
 export default ItemList;

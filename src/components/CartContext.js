@@ -9,7 +9,7 @@ const CartContextProvider = ({children}) => {
     //Sumar 1 item al carrito
     const addItem = (item,qty) =>{
         //Busco el obj en el carrito y verifico si existe
-        let cartFind= cartList.find(itm => itm.id == item.id)? true:false
+        let cartFind= cartList.some(itm => itm.id == item.id)
                
         if(cartFind){
 
@@ -62,8 +62,26 @@ const CartContextProvider = ({children}) => {
         setCartlist([])
     }
 
+    //Suma de qty
+    const sumaQty = () =>{
+
+        let suma = cartList.map(item => item.qty)
+
+        return suma.reduce(((valorPrevio, valorActual) => valorPrevio + valorActual) ,0)
+    }
+
+    //Costo total de prudoctos
+
+    const costoTotal =()=>{
+        let suma =0;
+        cartList.forEach((item)=>{
+            suma= suma + item.precio * item.qty
+        })
+        return suma;
+    }
+
     return(
-        <CartContext.Provider value={{cartList, addItem, removeItem,borrarCarrito}}>
+        <CartContext.Provider value={{cartList, addItem, removeItem,borrarCarrito,sumaQty,costoTotal}}>
             {children}
         </CartContext.Provider>
     );

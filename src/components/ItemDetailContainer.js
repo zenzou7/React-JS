@@ -28,33 +28,41 @@ const ItemDetailContainer = () =>{
     const test = useContext(CartContext)
 
     const onAdd = (qty) =>{
-        alert("Has seleccionado " + qty +" productos.")
+        alert(`Has seleccionado ${qty}  productos.`)
         setEstado(qty);
         test.addItem(dato, qty)
     }
-    
-
     
     useEffect(() => {
         getDato(1000, data.find(item => item.id === parseInt(id)))
             .then(result => setDato(result))
             .catch(err => console.log(err))
     },[id])
+
     
-    return(
+    if(dato){    
+        return(
         <>
-            <div>
-                <Item id={dato.id} img={dato.img} nombre={dato.nombre} precio={dato.precio}/>
-                <h2>descripcion:{dato.descripcion}</h2>
-                
-                {
-                   estado === 0
-                    ? <ItemCount stock={dato.stock} initial={estado} onAdd={onAdd}/>
-                    : <Link to={'/cart'}><button>Tu Carrito</button></Link>
-                }
-            </div>
+        {
+        <div>
+        <Item id={dato.id} img={dato.img} nombre={dato.nombre} precio={dato.precio}/>
+        <h2>descripcion:{dato.descripcion}</h2>
+            
+        {
+            estado === 0
+            ? <ItemCount stock={dato.stock} initial={estado} onAdd={onAdd}/>
+            : <Link to={'/cart'}><button>Tu Carrito</button></Link>
+        }
+        </div>
+        }
         </>
-    )
+        )
+    }
+    else{
+        return(
+            <h1>Cargando...</h1>
+        )
+    }
 }
 
 export default ItemDetailContainer;
