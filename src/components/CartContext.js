@@ -70,7 +70,7 @@ const CartContextProvider = ({children}) => {
         return suma.reduce(((valorPrevio, valorActual) => valorPrevio + valorActual) ,0)
     }
 
-    //Costo total de prudoctos
+    //Costo total de productos
 
     const costoTotal =()=>{
         let suma =0;
