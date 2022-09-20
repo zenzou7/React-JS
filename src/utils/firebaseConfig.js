@@ -39,6 +39,6 @@ export const firestoreFetchDetail = async (id) =>{
     const docSnap = await getDoc(docRef);
     
     const dataFromFirestore = docSnap.data()
-    console.log(dataFromFirestore)
+    
     return dataFromFirestore
 }
