@@ -1,21 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import {data} from '../utils/data'
 import { Link, useParams } from "react-router-dom";
 import Item from "./Item";
 import ItemCount from "./ItemCount";
 import { CartContext } from "./CartContext";
+import { firestoreFetchDetail } from "../utils/firebaseConfig";
 
-const getDato =(time, item) =>{ 
-    return new Promise((resolve, reject) =>{
-        if(true){
-            setTimeout(()=>{
-                resolve(item)
-            },time);
-        } else{
-            reject("Error")
-        }
-    })
-}
 
 const ItemDetailContainer = () =>{
 
@@ -34,9 +23,8 @@ const ItemDetailContainer = () =>{
     }
     
     useEffect(() => {
-        getDato(1000, data.find(item => item.id === parseInt(id)))
-            .then(result => setDato(result))
-            .catch(err => console.log(err))
+        firestoreFetchDetail(id)
+        .then(result => setDato(result))
     },[id])
 
     

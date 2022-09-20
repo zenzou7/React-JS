@@ -1,25 +1,11 @@
 import React from "react";
-import {data} from "../utils/data"
 import { useState , useEffect } from "react";
 import ItemCount from "./ItemCount";
 import Item from "./Item"
 import {useParams} from "react-router-dom"
 import ItemDetail from "./ItemDetail";
+import { firestoreFetch } from "../utils/firebaseConfig"
 
-
-let okey =true;
-
-const getDatos =(time,item) =>{ 
-    return new Promise((resolve, reject) =>{
-        if(okey){
-            setTimeout(()=>{
-                resolve(item)
-            },time);
-        } else{
-            reject("Error")
-        }
-    })
-}
 
 const ItemList = () =>{
 
@@ -28,16 +14,8 @@ const ItemList = () =>{
     const [bebidas, setBebidas] = useState([]);
 
     useEffect(()=>{
-        if(id){
-        getDatos(1000, data.filter(item => item.categoryId === parseInt(id)))
-            .then(result=>setBebidas(result))
-            .catch(error => console.log(error))
-        }
-        else{
-            getDatos(1000, data)
-            .then(result=>setBebidas(result))
-            .catch(error => console.log(error))
-        }
+        firestoreFetch(parseInt(id))
+            .then(result => setBebidas(result))
     },[id])
 
     const onAdd = (qty) =>{
