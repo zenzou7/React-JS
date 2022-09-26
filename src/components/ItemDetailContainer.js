@@ -35,6 +35,7 @@ const ItemDetailContainer = () =>{
         <div>
         <Item id={dato.id} img={dato.img} nombre={dato.nombre} precio={dato.precio} stock={dato.stock}/>
         <h2>descripcion:{dato.descripcion}</h2>
+        <h3>stock: {dato.stock} unidades.</h3>
             
         {
             estado === 0
