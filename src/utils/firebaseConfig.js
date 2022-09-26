@@ -39,6 +39,7 @@ export const firestoreFetchDetail = async (id) =>{
     const docSnap = await getDoc(docRef);
     
     const dataFromFirestore = docSnap.data()
+    dataFromFirestore.id= id;
     
     return dataFromFirestore
 }
