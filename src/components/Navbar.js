@@ -4,7 +4,6 @@ import CartWidget from "./CartWidget";
 
 const navbar = () =>{
     return (
-        <div>
             <nav id="navbar" className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <Link to={"/"}><p className="navbar-brand" href="#">Eren Jägermeister</p></Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +24,6 @@ const navbar = () =>{
                 </div>
                 <CartWidget/>
             </nav>
-        </div>
     )
     
 }

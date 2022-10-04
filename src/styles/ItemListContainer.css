@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  font-family: "Bebas Neue", cursive;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.titular{
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+  grid-area: titular;
+}
+
+#catalogo {
+  width: 100%;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  display: grid;
+  grid-template-areas: 
+  " titular titular titular titular"
+  "item item item item" 
+  "item item item item"
+  "item item item item";
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-rows: auto auto auto auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: auto;
+  gap: 5px;
+  padding: 15px;
+}

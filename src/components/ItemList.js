@@ -4,6 +4,8 @@ import Item from "./Item"
 import {useParams} from "react-router-dom"
 import ItemDetail from "./ItemDetail";
 import { firestoreFetch } from "../utils/firebaseConfig"
+import '../styles/ItemList.css'
+import '../styles/ItemListContainer.css'
 
 
 const ItemList = () =>{
@@ -19,11 +21,10 @@ const ItemList = () =>{
 
     if(bebidas.length !== 0){
     return(
-        <>
-        <h1>Catalogo de productos</h1>
+        <> 
         { 
         bebidas.map(bebida => 
-        <div key={bebida.id}>
+        <div className="bebidaCard" key={bebida.id}>
             <Item id={bebida.id} img={bebida.img} nombre={bebida.nombre} precio={bebida.precio}/>
             <ItemDetail id={bebida.id}/>
         </div>) 
