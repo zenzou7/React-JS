@@ -23,3 +23,5 @@ You may also see any lint errors in the console.
 
 ---
 ⌨️ con ❤️ por [zenzou7](https://github.com/zenzou7) 😊
+
+![gifReactApp](https://user-images.githubusercontent.com/103078025/194158138-a88c354b-e752-40ba-87d7-cae5c1b8f903.gif)
